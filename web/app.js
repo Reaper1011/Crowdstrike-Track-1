@@ -38,8 +38,6 @@ document.querySelectorAll('[data-sample]').forEach((button) => {
 function render(report) {
   el('empty').hidden = true;
   el('result').hidden = false;
-  el('analysisState').className = `pill ${report.level.toLowerCase()}`;
-  el('analysisState').textContent = 'AI ANALYSIS';
   el('priority').textContent = `${report.level} priority`;
   el('summary').textContent = report.summary;
   el('score').textContent = `${report.riskScore}%`;
