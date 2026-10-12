@@ -23,10 +23,6 @@ The app only displays findings whose quotes exactly match the supplied text. The
 
 The alert examples are sanitized excerpts from the [AIT Alert Data Set (AIT-ADS), Zenodo record 8263181](https://zenodo.org/records/8263181), Russell Mitchell scenario. They cover a web-shell-labeled Apache request, a UID change during the privilege-escalation phase, and a routine ClamAV update. The original dataset contains synthetic alerts from AMiner, Wazuh, and Suricata, along with attack-phase labels and false positives. The 96 MB archive is not bundled with this app. Malware examples are clearly labeled synthetic sandbox notes because the AIT-ADS is an alert dataset, not a malware-sample corpus.
 
-## Hosted preview
-
-The [private SignalDesk Site](https://signaldesk-soc-triage.coraldream6.chatgpt.site/) provides a visual preview. Model analysis is available in the local application.
-
 ## Files
 
 - `web/` — analysis interface
