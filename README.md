@@ -17,7 +17,7 @@ python3 -m venv .venv
 
 Open **http://127.0.0.1:4173**. The web server binds to loopback only. The model file is stored in `models/` and is excluded from GitHub.
 
-The app displays model findings only when their quotes exactly match the supplied email. It also offers independent browser pattern checks and combines the higher priority when they disagree. Neither path verifies live links, attachments, sender reputation, or authentication results. Analysts should check those with trusted tools before disposition.
+The app displays model findings only when their quotes exactly match the supplied email. The AI report includes a 0–100% model-estimated phishing-risk indicator and a separate quick-check score. The percentage is not a calibrated probability or confidence score. Priority follows the model score bands (low 0–34, medium 35–69, high 70–100); when the independent browser quick check assigns a higher priority, SignalDesk shows the higher combined priority and reports both scores. Neither path verifies live links, attachments, sender reputation, or authentication results. Analysts should check those with trusted tools before disposition.
 
 ## Hosted preview
 
