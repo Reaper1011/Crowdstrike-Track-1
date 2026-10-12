@@ -1,2 +1,2 @@
-mlx-lm>=0.32,<1
 huggingface_hub>=1.31,<3
+llama-cpp-python>=0.3.16,<1
