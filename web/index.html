@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Private, local AI email triage for security analysts.">
+  <meta name="description" content="Local AI workspace for phishing triage, security alert summaries, and plain-English malware explanations.">
   <meta name="theme-color" content="#f5f6fa">
-  <title>SignalDesk — AI Email Triage</title>
+  <title>SignalDesk — Security Analysis Workspace</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,53 +14,57 @@
       <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
       <span>SignalDesk</span><span class="brand-tag">SOC TOOL</span>
     </a>
-    <div class="local-badge"><span></span> LOCAL AI · PRIVATE BY DESIGN</div>
+    <div class="local-badge"><span></span> LOCAL ANALYSIS</div>
   </header>
 
   <main id="top" class="shell">
     <section class="page-intro" aria-labelledby="page-title">
       <div>
-        <div class="eyebrow">SECURITY WORKSPACE <span>/</span> EMAIL REVIEW</div>
-        <h1 id="page-title">Phishing email analyzer</h1>
-        <p>Get a clear, evidence-backed report from your local AI model.</p>
+        <div class="eyebrow">SECURITY WORKSPACE <span>/</span> ANALYSIS</div>
+        <h1 id="page-title">Security analysis</h1>
+        <p>Review suspicious email, summarize alerts, or explain malware behavior.</p>
       </div>
-      <div class="privacy-chip"><span aria-hidden="true">✳</span> Your email stays on this Mac</div>
     </section>
 
     <div class="workspace">
       <section class="panel input-panel" aria-labelledby="input-title">
         <div class="panel-head">
           <span class="step">01 / INPUT</span>
-          <h2 id="input-title">Paste an email to review</h2>
-          <p>Include the sender, subject, and message body for better context.</p>
+          <h2 id="input-title">Choose an analysis</h2>
+          <p>Paste relevant content. The report stays grounded in the supplied text.</p>
+        </div>
+        <div class="task-switcher" role="tablist" aria-label="Analysis type">
+          <button type="button" role="tab" id="task-phishing" aria-selected="true" data-mode="phishing">Phishing email</button>
+          <button type="button" role="tab" id="task-alert" aria-selected="false" data-mode="alert">SOC alert</button>
+          <button type="button" role="tab" id="task-malware" aria-selected="false" data-mode="malware">Malware behavior</button>
         </div>
         <div class="sample-row">
-          <span>TRY AN EXAMPLE</span>
-          <button type="button" data-sample="invoice">Urgent invoice</button>
-          <button type="button" data-sample="payroll">Payroll reset</button>
-          <button type="button" data-sample="legit">Routine update</button>
+          <span id="sample-label">SAMPLE EMAILS</span>
+          <button type="button" data-sample-index="0">Urgent invoice</button>
+          <button type="button" data-sample-index="1">Payroll reset</button>
+          <button type="button" data-sample-index="2">Routine update</button>
         </div>
-        <label for="email">EMAIL CONTENT</label>
-        <textarea id="email" spellcheck="false" maxlength="20000" placeholder="From: sender@example.com&#10;Subject: Message subject&#10;&#10;Paste the email here…"></textarea>
+        <p id="dataset-note" class="dataset-note" hidden></p>
+        <label id="input-label" for="email">EMAIL CONTENT</label>
+        <textarea id="email" spellcheck="false" maxlength="20000" placeholder="Paste the email here…"></textarea>
         <div class="input-meta"><span id="charcount">0 characters</span><span>MAX 20,000</span></div>
         <div class="analyze-row">
           <button type="button" id="analyzeAI" class="ai-button" disabled>Analyze with AI <span aria-hidden="true">↗</span></button>
           <span id="aiStatus" class="model-status" role="status" aria-live="polite">Checking local model…</span>
         </div>
-        <p class="privacy-note">CyberSecQwen runs on-device. Email text is not sent to a hosted AI service.</p>
       </section>
 
       <section class="panel report-panel" aria-labelledby="report-title">
         <div class="panel-head report-head">
           <span class="step">02 / REPORT</span>
-          <h2 id="report-title">AI analysis</h2>
-          <p>Risk estimate, quoted evidence, and safe next steps.</p>
+          <h2 id="report-title">Analysis report</h2>
+          <p id="report-subtitle">Risk estimate, quoted evidence, and recommended next steps.</p>
         </div>
         <div id="empty" class="empty-state">
           <div class="empty-icon" aria-hidden="true">✳</div>
           <span class="eyebrow">READY WHEN YOU ARE</span>
           <h3>Your report will appear here</h3>
-          <p>Paste an email, then choose <strong>Analyze with AI</strong>.</p>
+          <p>Select an analysis type, provide content, then choose <strong>Analyze with AI</strong>.</p>
         </div>
         <div id="result" class="report-content" hidden>
           <div class="verdict">
@@ -91,7 +95,7 @@
         </div>
       </section>
     </div>
-    <footer>Training aid only. Treat the score as an estimate, verify evidence independently, and make the final decision yourself.</footer>
+    <footer>Decision support only. Validate findings with trusted security tools before taking action.</footer>
   </main>
   <script src="app.js"></script>
 </body>
