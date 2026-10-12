@@ -3,38 +3,96 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SignalDesk turns suspicious emails into clear, evidence-backed SOC triage notes. AI analysis runs locally on your Mac.">
-  <meta name="theme-color" content="#090a10">
-  <title>SignalDesk — clarity for every signal</title>
+  <meta name="description" content="Private, local AI email triage for security analysts.">
+  <meta name="theme-color" content="#f5f6fa">
+  <title>SignalDesk — AI Email Triage</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page-glow" aria-hidden="true"></div>
   <header class="topbar">
-    <a class="brand" href="#top" aria-label="SignalDesk home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>SignalDesk</span><sup>LAB</sup></a>
-    <nav aria-label="Main navigation"><a href="#workbench">Workbench</a><a href="#how-it-works">How it works</a></nav>
-    <a class="nav-action" href="#workbench">Open workbench <span aria-hidden="true">↗</span></a>
+    <a class="brand" href="#top" aria-label="SignalDesk home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>SignalDesk</span><span class="brand-tag">SOC TOOL</span>
+    </a>
+    <div class="local-badge"><span></span> LOCAL AI · PRIVATE BY DESIGN</div>
   </header>
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <div class="hero-kicker"><span class="pulse"></span> BUILT FOR THE FIRST FIVE MINUTES OF AN INCIDENT</div>
-        <h1 id="hero-title">Make sense of<br><em>every signal.</em></h1>
-        <p>From suspicious email to clear next step. Turn scattered clues into a grounded, reviewable assessment—without losing the human judgment that matters.</p>
-        <div class="hero-actions"><a class="hero-primary" href="#workbench">Start triaging <span aria-hidden="true">↗</span></a><a class="hero-secondary" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a></div>
+
+  <main id="top" class="shell">
+    <section class="page-intro" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow">SECURITY WORKSPACE <span>/</span> EMAIL REVIEW</div>
+        <h1 id="page-title">Phishing email analyzer</h1>
+        <p>Get a clear, evidence-backed report from your local AI model.</p>
       </div>
-      <div class="hero-visual" aria-hidden="true"><div class="visual-shine"></div><div class="visual-top"><span class="visual-dots"><i></i><i></i><i></i></span><span>signaldesk / analysis</span><span class="visual-live">● LIVE</span></div><div class="visual-body"><div class="visual-label">SIGNAL / 001</div><div class="visual-line"><span>From:</span> Accounts Payable &lt;billing@northstar-payments.example&gt;</div><div class="visual-line"><span>Subject:</span> FINAL NOTICE: Invoice due today</div><div class="visual-rule"></div><div class="visual-flag"><span>↗</span><div><strong>Potential phishing attempt</strong><small>4 signals detected · verify independently</small></div><b>HIGH</b></div><div class="visual-trace"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="visual-caption">Evidence first. Conclusions second.</div></div>
+      <div class="privacy-chip"><span aria-hidden="true">✳</span> Your email stays on this Mac</div>
     </section>
-    <section id="workbench" class="workbench" aria-labelledby="workbench-title">
-      <div class="section-heading"><div><span class="section-eyebrow">THE WORKBENCH / 01</span><h2 id="workbench-title">A clearer path from alert to action.</h2></div><div class="section-aside"><span class="aside-dot"></span><span>LOCAL-FIRST ANALYSIS<br>BUILT FOR HUMAN REVIEW</span></div></div>
-      <div class="workspace">
-        <section class="pane input-pane" aria-labelledby="input-title"><div class="pane-heading"><div class="pane-step">01 <span>/ INPUT</span></div><h3 id="input-title">Inspect an email</h3><p>Paste a suspicious message or start with a synthetic case.</p></div><div class="sample-row"><span>TRY A CASE</span><button type="button" data-sample="invoice">Urgent invoice <span>↗</span></button><button type="button" data-sample="payroll">Payroll reset <span>↗</span></button><button type="button" data-sample="legit">Routine update <span>↗</span></button></div><label for="email">EMAIL CONTENT</label><textarea id="email" spellcheck="false" maxlength="20000" placeholder="From: sender@example.com&#10;Subject: Message subject&#10;&#10;Paste the email body here..."></textarea><div class="input-meta"><span id="charcount">0 characters</span><span>MAX 20,000</span></div><div class="run-actions"><button type="button" id="analyze" class="check-button">Run quick check <span>↗</span></button><button type="button" id="analyzeAI" class="ai-button" disabled>Analyze with CyberSecQwen <span>✧</span></button></div><div class="runtime-status"><span class="runtime-icon">●</span><span id="aiStatus">Checking local model…</span></div><p class="privacy-note">Quick check runs in your browser. CyberSecQwen runs on this Mac when you open the local app. Email text is not sent to a hosted model.</p></section>
-        <section class="pane result-pane" aria-labelledby="result-title"><div class="pane-heading result-heading"><div><div class="pane-step">02 <span>/ ASSESSMENT</span></div><h3 id="result-title">The assessment</h3><p>What the evidence says—and what it doesn't.</p></div><span id="analysisState" class="pill idle">AWAITING INPUT</span></div><div id="empty" class="empty"><div class="empty-orbit" aria-hidden="true"><span>✳</span></div><span class="empty-kicker">READY TO ANALYZE</span><h4>Every clue in context.</h4><p>Choose a case or paste an email to see a provisional priority, exact supporting quotes, and safe next steps.</p><div class="empty-line" aria-hidden="true"><i></i><i></i><i></i></div></div><div id="result" hidden><div class="verdict"><div><span class="mini-label">TRIAGE PRIORITY</span><h4 id="priority"></h4><p id="summary"></p></div><div class="score-wrap"><div id="score" class="score" aria-label="Risk score"></div><span id="scoreLabel" class="score-label">QUICK CHECK · /100</span></div></div><div class="result-section"><div class="result-label">EVIDENCE <span id="evidenceCount"></span></div><div id="evidence"></div></div><div class="result-section"><div class="result-label">RECOMMENDED NEXT STEPS</div><ol id="steps"></ol></div><div class="uncertainty"><strong>Keep the analyst in the loop</strong><p id="limits"></p></div><div class="result-actions"><button type="button" id="copyReport">Copy report ↗</button><button type="button" id="copyPrompt">Copy review prompt ↗</button></div><div id="toast" role="status" aria-live="polite"></div></div></section>
-      </div>
-    </section>
-    <section id="how-it-works" class="how"><div><span class="section-eyebrow">DESIGNED TO THINK WITH YOU</span><h2>Fast enough to help.<br><em>Careful enough to trust.</em></h2></div><div class="how-grid"><article><span>01 / OBSERVE</span><h3>Find the signals</h3><p>Spot pressure tactics, unusual reply paths, links, and requests for sensitive information.</p></article><article><span>02 / EXPLAIN</span><h3>Show the evidence</h3><p>Every finding points to words in the supplied email. Claims stay grounded in what you can inspect.</p></article><article><span>03 / VERIFY</span><h3>Decide the next step</h3><p>Get a provisional priority and safe verification steps. Your analyst makes the final call.</p></article></div></section>
+
+    <div class="workspace">
+      <section class="panel input-panel" aria-labelledby="input-title">
+        <div class="panel-head">
+          <span class="step">01 / INPUT</span>
+          <h2 id="input-title">Paste an email to review</h2>
+          <p>Include the sender, subject, and message body for better context.</p>
+        </div>
+        <div class="sample-row">
+          <span>TRY AN EXAMPLE</span>
+          <button type="button" data-sample="invoice">Urgent invoice</button>
+          <button type="button" data-sample="payroll">Payroll reset</button>
+          <button type="button" data-sample="legit">Routine update</button>
+        </div>
+        <label for="email">EMAIL CONTENT</label>
+        <textarea id="email" spellcheck="false" maxlength="20000" placeholder="From: sender@example.com&#10;Subject: Message subject&#10;&#10;Paste the email here…"></textarea>
+        <div class="input-meta"><span id="charcount">0 characters</span><span>MAX 20,000</span></div>
+        <div class="analyze-row">
+          <button type="button" id="analyzeAI" class="ai-button" disabled>Analyze with AI <span aria-hidden="true">↗</span></button>
+          <span id="aiStatus" class="model-status" role="status" aria-live="polite">Checking local model…</span>
+        </div>
+        <p class="privacy-note">CyberSecQwen runs on-device. Email text is not sent to a hosted AI service.</p>
+      </section>
+
+      <section class="panel report-panel" aria-labelledby="report-title">
+        <div class="panel-head report-head">
+          <span class="step">02 / REPORT</span>
+          <h2 id="report-title">AI analysis</h2>
+          <p>Risk estimate, quoted evidence, and safe next steps.</p>
+        </div>
+        <div id="empty" class="empty-state">
+          <div class="empty-icon" aria-hidden="true">✳</div>
+          <span class="eyebrow">READY WHEN YOU ARE</span>
+          <h3>Your report will appear here</h3>
+          <p>Paste an email, then choose <strong>Analyze with AI</strong>.</p>
+        </div>
+        <div id="result" class="report-content" hidden>
+          <div class="verdict">
+            <div class="verdict-copy">
+              <span class="micro-label">MODEL ASSESSMENT</span>
+              <h3 id="priority"></h3>
+              <p id="summary"></p>
+            </div>
+            <div class="risk-wrap">
+              <div id="score" class="risk-score" aria-label="AI-estimated risk score"></div>
+              <span id="scoreLabel" class="risk-caption">AI-ESTIMATED RISK · NOT PROBABILITY</span>
+            </div>
+          </div>
+          <section class="report-section">
+            <h3 class="section-label">EVIDENCE <span id="evidenceCount"></span></h3>
+            <div id="evidence" class="evidence-list"></div>
+          </section>
+          <section class="report-section steps-section">
+            <h3 class="section-label">RECOMMENDED NEXT STEPS</h3>
+            <ol id="steps" class="steps-list"></ol>
+          </section>
+          <div class="limits"><strong>Analyst review</strong><p id="limits"></p></div>
+          <div class="report-actions">
+            <button type="button" id="copyReport">Copy report</button>
+            <button type="button" id="copyPrompt">Copy review prompt</button>
+          </div>
+          <div id="toast" role="status" aria-live="polite"></div>
+        </div>
+      </section>
+    </div>
+    <footer>Training aid only. Treat the score as an estimate, verify evidence independently, and make the final decision yourself.</footer>
   </main>
-  <footer><div class="footer-brand">SignalDesk <span>✳</span></div><p>A training demo for SOC analysts. Inspect links, headers, attachments, and identity through trusted tools before acting.</p><a href="#top">Back to top ↑</a></footer>
   <script src="app.js"></script>
 </body>
 </html>

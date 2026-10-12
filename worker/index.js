@@ -1,4 +1,4 @@
-// ASSETS is injected by scripts/build.mjs. Hosted Site is a visual/quick-check demo.
+// ASSETS is injected by scripts/build.mjs. Hosted Site is a visual demo; AI runs locally.
 // Model inference is available only in local/server.py on the owner's Mac.
 const json = (data, status = 200) => new Response(JSON.stringify(data), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 export default {

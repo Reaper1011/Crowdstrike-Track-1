@@ -149,7 +149,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(analyze(email))
         except Exception as exc:
             print(f"CyberSecQwen analysis error: {exc}", flush=True)
-            self.send_json({"error": "CyberSecQwen output could not be verified. Try again or use the quick check."}, 502)
+            self.send_json({"error": "CyberSecQwen output could not be verified. Try again or revise the email text."}, 502)
 
 
 def main():
