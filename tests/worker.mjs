@@ -4,7 +4,7 @@ import worker from '../dist/server/index.js';
 const origin = 'https://example.test';
 const page = await worker.fetch(new Request(origin + '/'));
 assert.equal(page.status, 200);
-assert.match(await page.text(), /Analyze with local AI/);
+assert.match(await page.text(), /Analyze with Qwen/);
 const status = await worker.fetch(new Request(origin + '/api/status'));
 assert.deepEqual((await status.json()).configured, false);
 const unavailable = await worker.fetch(new Request(origin + '/api/analyze', { method: 'POST', body: '{}' }));
