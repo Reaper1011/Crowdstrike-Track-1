@@ -57,7 +57,7 @@ function setMode(nextMode) {
   el('report-title').textContent = config.report;
   el('dataset-note').hidden = mode !== 'alert';
   if (mode === 'alert') {
-    el('dataset-note').innerHTML = 'Sanitized, selected records from the <a href="https://zenodo.org/records/8263181" target="_blank" rel="noreferrer">AIT Alert Data Set</a> (Russell Mitchell scenario). Fields and web request data are shortened for safe display.';
+    el('dataset-note').innerHTML = 'Sanitized examples from the synthetic <a href="https://zenodo.org/records/8263181" target="_blank" rel="noreferrer">AIT Alert Data Set</a> (Russell Mitchell scenario). Fields and web request data are shortened for safe display.';
   }
   sampleButtons.forEach((button, index) => {
     const sample = config.samples[index];
